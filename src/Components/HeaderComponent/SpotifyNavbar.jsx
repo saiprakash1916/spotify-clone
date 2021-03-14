@@ -7,9 +7,10 @@ const SpotifyNavbar = () => {
         <Fragment>
             <section id="spotifyNavbarBlock">
                 <article>
-                    <div className="logoBlock"><a href="/"><SpotifyLogo/></a></div>
-                    <div className="menuBlock"><SpotifyMenus/></div>
+                    <div className="logoBlock"><a href="/"><SpotifyLogo /></a></div>
+                    <div className="menuBlock"><SpotifyMenus /></div>
                 </article>
+
             </section>
         </Fragment>
     )

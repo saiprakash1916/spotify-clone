@@ -12,10 +12,12 @@ class App extends Component {
           <SpotifyNavbar />
         </header>
         <main>
-          <Signup />
-          {/* <SpotifySlider /> */}
+          {/* <Signup /> */}
+          <SpotifySlider />
         </main>
-        <footer>{/* <Fotter /> */}</footer>
+        <footer>
+          <Fotter />
+        </footer>
       </Fragment>
     );
   }

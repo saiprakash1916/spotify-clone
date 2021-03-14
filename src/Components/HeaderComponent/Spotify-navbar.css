@@ -1,22 +1,23 @@
 #spotifyNavbarBlock {
   background-color: #000;
   color: #fff;
-  height: 65px;
+  height: 70px;
   width: 100%;
+  position: fixed;
 }
 #spotifyNavbarBlock article {
   width: 75%;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  height: 65px;
+  height: 70px;
 }
 #spotifyNavbarBlock article div {
   flex-basis: 50%;
 }
 .logoBlock svg {
   fill: #fff;
-  width: 106px;
+  width: 120px;
 }
 .menuBlock nav ul {
   list-style: none;
