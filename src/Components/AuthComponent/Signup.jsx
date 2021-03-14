@@ -50,7 +50,7 @@ class Signup extends Component {
                             </div>
                             {/*---------profile end here-----*/}
                             {/*---------DOB Start here-----*/} 
-                            <p>This appears on your profile.</p>
+                            <small>This appears on your profile.</small>
                             <div className="form-group">
                                 <label>What's your date of birth?</label>
                                 <input type="datetime-local" className="form-control" placeholder="Month" name="dob" value={dob} onChange={this.handleChange}/>
@@ -69,12 +69,12 @@ class Signup extends Component {
                                 <input type="checkbox" name="checkdata" /> Share my registration data with Spotify's content providers for marketing purposes.
                             </div>
                             {/*---------Check box end here-----*/}
-                            <p>By clicking on Sign up, you agree to Spotify's <a href="/">Terms and Conditions of Use</a>.</p>
-                            <p>To learn more about how Spotify collects, uses, shares and protects your personal data please read Spotify's <a href="/">Privacy Policy</a>.</p>
+                            <small>By clicking on Sign up, you agree to Spotify's <a href="/">Terms and Conditions of Use</a>.</small><br/><br/>
+                            <small>To learn more about how Spotify collects, uses, shares and protects your personal data please read Spotify's <a href="/">Privacy Policy</a>.</small>
                             <div className="form-group">
                                 <button className="btn btn-success btn-block">SIGN up</button>
                             </div>
-                            <p>Have an account? <a href="/">Log in</a>.</p>
+                            <p className="account">Have an account? <a href="/">Log in</a>.</p>
                     </form>
                 </article>
             </section>

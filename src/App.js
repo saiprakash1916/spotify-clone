@@ -8,16 +8,12 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <header>
-          <SpotifyNavbar />
-        </header>
+        <header>{/* <SpotifyNavbar /> */}</header>
         <main>
-          {/* <Signup /> */}
-          <SpotifySlider />
+          <Signup />
+          {/* <SpotifySlider /> */}
         </main>
-        <footer>
-          <Fotter />
-        </footer>
+        <footer>{/* <Fotter /> */}</footer>
       </Fragment>
     );
   }
