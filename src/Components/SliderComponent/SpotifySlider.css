@@ -1,14 +1,12 @@
 #spotifySliderBlock {
+  height: 100vh;
+  background-color: rgb(41, 65, 171);
   background-image: url(https://www-growth.scdn.co/static/home/bursts.svg);
   background-size: 175%;
   background-position: 46% 4%;
   -webkit-box-pack: center;
   justify-content: center;
   min-height: 846px;
-}
-#spotifySliderBlock {
-  height: 100vh;
-  background-color: rgb(41, 65, 171);
 }
 #spotifySliderBlock article {
   display: flex;

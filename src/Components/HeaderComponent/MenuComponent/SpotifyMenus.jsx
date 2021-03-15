@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react'
+import {Link} from 'react-router-dom'
 const SpotifyMenus = () => {
     return (
         <Fragment>
             <nav>
                 <ul>
-                    <li><a href="/">premium</a></li>
-                    <li><a href="/">Support</a></li>
-                    <li><a href="/">Download</a></li>
-                    <li><a href="/">|</a></li>
-                    <li><a href="/">Signup</a></li>
-                    <li><a href="/">Login</a></li>
+                    <li><Link to="/">premium</Link></li>
+                    <li><Link to="/">Support</Link></li>
+                    <li><Link to="/">Download</Link></li>
+                    <li><Link to="/Signup">Signup</Link></li>
+                    <li><Link to="/Signin">Login</Link></li>
                 </ul>
             </nav>
         </Fragment>

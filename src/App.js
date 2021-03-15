@@ -1,19 +1,26 @@
 import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import SignIn from "./Components/AuthComponent/Signin";
 import Signup from "./Components/AuthComponent/Signup";
-import Fotter from "./Components/FotterComponent/Fotter";
 import SpotifyNavbar from "./Components/HeaderComponent/SpotifyNavbar";
-import SpotifySlider from "./Components/SliderComponent/SpotifySlider";
+import Home from "./Components/HomeComponent/Home";
+import PageNoteFound from "./Components/pageNotFound/PageNotFound";
 class App extends Component {
   state = {};
   render() {
     return (
       <Fragment>
-        <header>{/* <SpotifyNavbar /> */}</header>
-        <main>
-          <Signup />
-          {/* <SpotifySlider /> */}
-        </main>
-        <footer>{/* <Fotter /> */}</footer>
+        <Router>
+          <header>
+            <SpotifyNavbar />
+          </header>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/Signin" exact component={SignIn} />
+            <Route path="/signup" exact component={Signup} />
+            <Route path="*" component={PageNoteFound} />
+          </Switch>
+        </Router>
       </Fragment>
     );
   }

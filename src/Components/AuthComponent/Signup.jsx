@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import firebase from '../../firebase';
 import "./Auth.css"
 class Signup extends Component {
     state = {
@@ -16,6 +17,7 @@ class Signup extends Component {
         e.preventDefault();
         let { email, confirmEmail, password, profile, dob } = this.state;
         console.log({ email, confirmEmail, password, profile, dob });
+        firebase.auth().createUserWithEmailAndPassword(email,password).then(data =>{console.log(data)}).catch(err=>console.log(err))
     };
     render() {
         let{email,confirmEmail,password,profile,dob,gender}=this.state
@@ -59,9 +61,9 @@ class Signup extends Component {
                             {/*---------Gender start here-----*/}
                             <div className="form-group">
                                 <label>What's your gender?</label>
-                                <input type="radio" name="gender"  name="gender" value={gender} onChange={this.handleChange}/> Male
-                                <input type="radio" name="gender"  name="gender" value={gender} onChange={this.handleChange}/> Female
-                                <input type="radio" name="gender"  name="gender" value={gender} onChange={this.handleChange}/> Non-binary
+                                <input type="radio" name="gender"  value={gender} onChange={this.handleChange}/> Male
+                                <input type="radio" name="gender"  value={gender} onChange={this.handleChange}/> Female
+                                <input type="radio" name="gender"  value={gender} onChange={this.handleChange}/> Non-binary
                             </div>
                             {/*---------Gender end here-----*/}
                             {/*---------Check box start here-----*/}
