@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import firebase from '../../firebase';
 import "./Auth.css"
+import { toast } from 'react-toastify';
+import md5 from 'md5';
 class Signup extends Component {
     state = {
         email: "",
@@ -13,11 +15,25 @@ class Signup extends Component {
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
-    handleSubmit = e => {
+    handleSubmit = async (e) => {
         e.preventDefault();
-        let { email, confirmEmail, password, profile, dob } = this.state;
-        console.log({ email, confirmEmail, password, profile, dob });
-        firebase.auth().createUserWithEmailAndPassword(email,password).then(data =>{console.log(data)}).catch(err=>console.log(err))
+        try {
+            let { email, confirmEmail, password, profile, dob } = this.state;
+            console.log({ email, confirmEmail, password, profile, dob });
+            //auth
+            let userdata = await firebase.auth().createUserWithEmailAndPassword(email, password);
+            userdata.user.sendEmailVerification();
+            let message = `verification mail has sent to ${email} please confirm it and Singin...`;
+            toast.success(message);
+            console.log(userdata)
+            userdata.user.updateProfile({
+                displayName: profile,
+                photoURL:`https://www.gravatar.com/avatar/(${md5(email)})?d=identicon`,
+            })
+        } catch (err) {
+            console.log(err);
+            toast.error(err.message)
+        }   
     };
     render() {
         let{email,confirmEmail,password,profile,dob,gender}=this.state
@@ -59,11 +75,11 @@ class Signup extends Component {
                             </div>
                             {/*---------DOB end here-----*/}
                             {/*---------Gender start here-----*/}
-                            <div className="form-group">
+                            <div className="form-group" name="gender" value={gender}>
                                 <label>What's your gender?</label>
-                                <input type="radio" name="gender"  value={gender} onChange={this.handleChange}/> Male
-                                <input type="radio" name="gender"  value={gender} onChange={this.handleChange}/> Female
-                                <input type="radio" name="gender"  value={gender} onChange={this.handleChange}/> Non-binary
+                                <input type="radio" name="gender" value="Male" onChange={this.handleChange}/> Male
+                                <input type="radio" name="gender" value="Female" onChange={this.handleChange}/> Female
+                                <input type="radio" name="gender" value="Non-binary" onChange={this.handleChange}/> Non-binary
                             </div>
                             {/*---------Gender end here-----*/}
                             {/*---------Check box start here-----*/}

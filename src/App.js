@@ -5,6 +5,8 @@ import Signup from "./Components/AuthComponent/Signup";
 import SpotifyNavbar from "./Components/HeaderComponent/SpotifyNavbar";
 import Home from "./Components/HomeComponent/Home";
 import PageNoteFound from "./Components/pageNotFound/PageNotFound";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 class App extends Component {
   state = {};
   render() {
@@ -14,6 +16,7 @@ class App extends Component {
           <header>
             <SpotifyNavbar />
           </header>
+          <ToastContainer />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/Signin" exact component={SignIn} />
