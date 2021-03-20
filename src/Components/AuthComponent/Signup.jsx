@@ -25,10 +25,16 @@ class Signup extends Component {
             userdata.user.sendEmailVerification();
             let message = `verification mail has sent to ${email} please confirm it and Singin...`;
             toast.success(message);
-            console.log(userdata)
-            userdata.user.updateProfile({
+            await userdata.user.updateProfile({
                 displayName: profile,
-                photoURL:`https://www.gravatar.com/avatar/(${md5(email)})?d=identicon`,
+                photoURL: `https://www.gravatar.com/avatar/${md5(email)}?d=identicon`,
+            });
+            //Store information into firebase realtime databade
+            await firebase.database().ref().child("users/" + userdata.user.uid).set({
+                username:userdata.user.displayName,
+                email: userdata.user.email,
+                photoURL: userdata.user.photoURL,
+                registrationDate:new Date().toLocaleDateString(),
             })
         } catch (err) {
             console.log(err);
@@ -45,25 +51,25 @@ class Signup extends Component {
                         <form onSubmit={this.handleSubmit}>
                         {/*---------Email start here-----*/}    
                             <div className="form-group">
-                                <lable>What's your email?</lable>
+                                <label>What's your email?</label>
                                 <input type="email" className="form-control" placeholder="Enter your Email." name="email" value={email} onChange={this.handleChange}/>
                             </div>
                             {/*---------Email End here-----*/}
                             {/*---------Confirm Email start here-----*/} 
                             <div className="form-group">
-                                <lable>Confirm your email</lable>
+                                <label>Confirm your email</label>
                                 <input type="email" className="form-control" placeholder="Enter your Email again."name="confirmEmail" value={confirmEmail} onChange={this.handleChange}/>
                             </div>
                             {/*---------Confirm Email End here-----*/}
                             {/*---------password start here-----*/} 
                             <div className="form-group">
-                                <lable>Create a password</lable>
+                                <label>Create a password</label>
                                 <input type="password" className="form-control" placeholder="create a password."name="password" value={password} onChange={this.handleChange}/>
                             </div>
                             {/*---------password end here-----*/}
                             {/*---------profile start here-----*/} 
                             <div className="form-group">
-                                <lable>What should we call you?</lable>
+                                <label>What should we call you?</label>
                                 <input type="text" className="form-control" placeholder="Enter a profile name."name="profile" value={profile} onChange={this.handleChange}/>
                             </div>
                             {/*---------profile end here-----*/}

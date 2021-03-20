@@ -7,14 +7,27 @@ import Home from "./Components/HomeComponent/Home";
 import PageNoteFound from "./Components/pageNotFound/PageNotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import firebase from "./firebase";
 class App extends Component {
-  state = {};
+  state = {
+    userInfo: "",
+  };
+  async componentDidMount() {
+    await firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ userInfo: user });
+      } else {
+        this.setState({ userInfo: "" });
+      }
+    });
+  }
   render() {
+    console.log(this.state.userInfo);
     return (
       <Fragment>
         <Router>
           <header>
-            <SpotifyNavbar />
+            <SpotifyNavbar user={this.state.userInfo} />
           </header>
           <ToastContainer />
           <Switch>
