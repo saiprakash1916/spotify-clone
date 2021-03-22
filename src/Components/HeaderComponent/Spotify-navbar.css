@@ -34,3 +34,8 @@
 .menuBlock nav ul li a:hover {
   color: #1ed701;
 }
+.menuBlock nav ul li a img {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+}

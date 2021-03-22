@@ -3,6 +3,7 @@ import firebase from '../../firebase';
 import "./Auth.css"
 import { toast } from 'react-toastify';
 import md5 from 'md5';
+import { Link } from "react-router-dom";
 class Signup extends Component {
     state = {
         email: "",
@@ -98,7 +99,7 @@ class Signup extends Component {
                             <div className="form-group">
                                 <button className="btn btn-success btn-block">SIGN up</button>
                             </div>
-                            <p className="account">Have an account? <a href="/">Log in</a>.</p>
+                            <p className="account">Have an account? <Link to="/Signin">Log in</Link>.</p>
                     </form>
                 </article>
             </section>

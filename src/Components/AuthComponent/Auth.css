@@ -53,18 +53,21 @@
   font-size: 16px;
   cursor: pointer;
 }
-small{
+small {
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
-  letter-spacing: 0.25px;  
+  letter-spacing: 0.25px;
 }
-small a:hover{
+small a:hover {
   color: rgb(29, 185, 84);
 }
-p{
+p {
   text-align: center;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+}
+#authSection form .form-group button Link {
+  text-decoration: none;
 }
